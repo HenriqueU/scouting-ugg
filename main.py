@@ -29,7 +29,6 @@ class scouting_sq:
     def scouting_function(self):
         list_of_champions = self.soup.findAll('div', {'class':'rt-tr-group'})
 
-        rank_list = []
         champions_list = []
         winrate_list = []
         wins_list = []
@@ -40,7 +39,6 @@ class scouting_sq:
         assists_list = []
 
         for row in list_of_champions:
-            rank_list.append(row.find('span').get_text())
             champions_list.append(row.find('span', {'class':'champion-name'}).get_text())
             winrate_list.append(row.find('strong').get_text())
             wins_list.append(int(row.find('span', {'class':'match-record'}).get_text()[:2].replace('W', '')))
@@ -53,7 +51,6 @@ class scouting_sq:
         total_games_list = pd.DataFrame([wins_list, loses_list]).sum()
 
         data = {
-            "Rank": rank_list,
             "Champion": champions_list,
             "Winrate": winrate_list,
             "Wins": wins_list,
