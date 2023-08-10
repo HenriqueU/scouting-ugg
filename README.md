@@ -1,4 +1,4 @@
-# scouting-ugg
+# Coleta de dados com Python (WebScraping)
 
 Programa em Python que serve para scouting em contas de SoloQ pelo site u.gg
 
